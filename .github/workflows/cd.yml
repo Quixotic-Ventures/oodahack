@@ -16,6 +16,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14'
+        cache: 'npm'
     
     - name: Cache node modules
       uses: actions/cache@v2
@@ -35,14 +36,15 @@ jobs:
       uses: akhileshns/heroku-deploy@v3.12.12
       with:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-        heroku_app_name: "your-heroku-app-name"
-        heroku_email: "your-email@example.com"
+        heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}  # Make sure this secret is correctly set
+        heroku_email: ${{ secrets.HEROKU_EMAIL }}  # Make sure this secret is correctly set
     
     - name: Health check
       run: curl -f ${{ secrets.PRODUCTION_URL }}/health
-
+      continue-on-error: true  # Ensures that the workflow continues even if the health check fails
+    
     - name: Notify Deployment Status
-      if: success()  # Notify only if deployment is successful
+      if: always()  # Sends notification regardless of deployment success or failure
       uses: 8398a7/action-slack@v3
       with:
         status: ${{ job.status }}

@@ -21,6 +21,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'npm'  # Added cache parameter directly in the setup-node action
     
     - name: Cache node modules
       uses: actions/cache@v2
@@ -41,7 +42,7 @@ jobs:
     
     - name: Lint
       run: npm run lint
-    
+
     - name: Run Snyk to check for vulnerabilities
       uses: snyk/actions/node@master
       env:
@@ -49,6 +50,12 @@ jobs:
       with:
         args: test --severity-threshold=high
     
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: Built-files
+        path: path/to/your/build/directory  # Modify as per your project structure
+
     - name: Notify Team on Slack
       if: failure()  # Only send a notification if the previous steps fail
       uses: 8398a7/action-slack@v3
