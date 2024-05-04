@@ -1,0 +1,113 @@
+# Ignore macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Ignore Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Ignore Linux system files
+.Trash-*
+.directory
+
+# Ignore compiled files
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+*.app
+
+# Ignore logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+*/db/*
+
+# Ignore cache and temporary files
+*.cache
+*.bak
+*.swp
+*.swo
+*.tmp
+*.swn
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore build and distribution directories
+bin/
+obj/
+dist/
+debug/
+release/
+_build/
+_deps/
+packages/
+*.egg-info/
+*.egg
+*.pyc
+*.pyo
+*.pyd
+*.class
+
+# Ignore various IDE and editor files
+.vscode/
+*.sublime*
+*.iml
+*.ipr
+*.iws
+.idea/
+*.vs/
+*.suo
+*.user
+*.sln.docstates
+*.sln.ide/
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.log
+*.bak
+*.swp
+*.swo
+*.swn
+*.un~
+*.bak
+
+# Ignore node modules
+node_modules/
+
+# Ignore bower components
+bower_components/
+
+# Ignore other dependency directories
+vendor/
+lib/
+
+# Ignore environment and configuration files
+.env
+.env.*
+//.Dockerignore
+.gitattributes
+.hgignore
+.pytest_cache/
+//*.yml
+//*.json
