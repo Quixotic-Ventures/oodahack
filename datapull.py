@@ -1,17 +1,15 @@
 import pandas as pd
-from data_download import download_pdf, pdf_to_text
+# from data_download import download_pdf, pdf_to_text
 
-import cohere
+
 from openai import OpenAI
-# import openai
+
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
-COHERE_API = os.getenv('COHERE_API')
-co = cohere.Client(COHERE_API)
 
-# OPENAI_API = os.getenv('OPENAI_API')
+
 
 
 client = OpenAI()
